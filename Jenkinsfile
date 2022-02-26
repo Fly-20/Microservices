@@ -1,9 +1,7 @@
 pipeline {
-    agent any
-    tools {
-        maven 'Maven 3.3.9'
-        jdk 'jdk8'
-    }
+       agent {
+           label 'linux-machine'
+       }
     node {
       
   stage('Checkout from SVN') { checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Fly-20/Microservices']]]) }
